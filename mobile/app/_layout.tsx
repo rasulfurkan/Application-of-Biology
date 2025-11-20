@@ -6,6 +6,8 @@
  import '../global.css';
  import { useFonts } from 'expo-font';
  import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+ import { preloadTaxonImages } from '@/lib/images';
+ import { getTaxa } from '@/lib/data';
  
  import { useColorScheme } from '@/components/useColorScheme';
 
@@ -45,6 +47,14 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded, error]);
+
+  // Preload any local images in the background after mount.
+  useEffect(() => {
+    try {
+      const ids = getTaxa().all.map((t) => t.id);
+      preloadTaxonImages(ids);
+    } catch {}
+  }, []);
 
   if (!loaded) {
     return null;

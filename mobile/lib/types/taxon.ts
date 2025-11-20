@@ -30,7 +30,7 @@ export type LineageNode = {
 };
 
 export type ImageAttribution = {
-  uri: string; // local bundled or remote
+  uri: number | string; // local require(...) or remote URL
   caption?: string;
   license?: string; // e.g., CC BY-SA 4.0
   attribution?: string; // e.g., "Wikimedia Commons: Author"

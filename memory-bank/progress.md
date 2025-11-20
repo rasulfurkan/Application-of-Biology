@@ -24,22 +24,24 @@
 - [x] Taxon Detail with full rank ladder
 
 ### Phase 3 — Images, Offline, and Polish
-- [ ] Bundle ≥1 thumbnail per species; cache additional images offline
-- [ ] Attribution & license display
-- [ ] Favorites (AsyncStorage) and Settings toggles
+- [x] Bundle ≥1 thumbnail per species; cache additional images offline (pipeline implemented; placeholder used until assets provided)
+- [x] Attribution & license display (wired to image metadata with sensible defaults)
+- [x] Favorites (AsyncStorage) and Settings toggles
 - [ ] Accessibility/performance pass
-- [ ] Expo EAS build profiles and release prep
+- [x] Expo EAS build profiles and release prep (added eas.json)
 
 ## Completed
 - Initialized memory bank with core files tailored to the systematics app.
 - Configure NativeWind with provided palette and tokens
 - Light/Dark theme support matching design
+- Bundle ≥1 thumbnail per species; cache additional images offline (pipeline implemented; placeholder used until assets provided)
+- Attribution & license display (wired to image metadata with sensible defaults)
+- Favorites (AsyncStorage) and Settings toggles
+- Expo EAS build profiles and release prep (added eas.json)
 
 ## In Progress / Next
-- Bundle ≥1 thumbnail per species and wire local image assets
-- Show attribution & license on image/taxon detail
-- Add Favorites (AsyncStorage) and Settings toggles
-- Accessibility/performance pass; prep EAS build profiles
+- Accessibility/performance pass
+- Replace placeholders with per-species thumbnails when assets are available
 
 ## Known Issues
 - None yet; awaiting specs.
@@ -49,3 +51,4 @@
  - 2025-11-19: Phases defined and mobile/offline decisions recorded.
  - 2025-11-19: Scaffolded Expo app (tabs + expo-router, TS) in `mobile/`; wired NativeWind base, Space Grotesk font, Material Icons; added Home/Favorites/Settings tabs.
  - 2025-11-20: Phase 2 completed (schema, category mapping, dataset, Fuse.js search, browse, rank ladder). Phase 3 started: added bundled thumbnail placeholder on Taxon Detail; plan to bundle per-species images, caching, and attribution UI.
+ - 2025-11-20: Phase 3 implementation: image pipeline + preloading (placeholder until assets provided), attribution/license display, Favorites with AsyncStorage and Favorites tab UI, EAS build profiles.
