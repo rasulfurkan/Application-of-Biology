@@ -36,6 +36,10 @@ export default function SearchScreen() {
         onChangeText={setQ}
         returnKeyType="search"
         onSubmitEditing={onSubmit}
+        accessibilityLabel="Search input"
+        accessibilityHint="Enter a query and press search to see results"
+        autoCorrect={false}
+        autoCapitalize="none"
       />
 
       {committed ? (
@@ -47,11 +51,18 @@ export default function SearchScreen() {
       <FlatList
         data={results}
         keyExtractor={(item) => item.id}
+        keyboardShouldPersistTaps="handled"
+        initialNumToRender={12}
+        windowSize={7}
+        removeClippedSubviews
         ItemSeparatorComponent={() => <View className="h-2" />}
         renderItem={({ item }) => (
           <Pressable
             onPress={() => router.push({ pathname: '/taxon/[id]', params: { id: item.id } })}
             className="rounded-xl p-4 border border-border dark:border-border-dark bg-surface dark:bg-neutral-900"
+            accessibilityRole="button"
+            accessibilityLabel={`Open taxon ${item.scientificName}`}
+            hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
             <Text className="text-base font-semibold text-text dark:text-text-inverted">{item.scientificName}</Text>
             {item.commonNames?.length ? (

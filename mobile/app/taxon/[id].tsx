@@ -116,6 +116,9 @@ export default function TaxonDetailScreen() {
           <Pressable
             onPress={() => (catSlug ? router.push({ pathname: '/category/[slug]', params: { slug: catSlug } }) : router.back())}
             className="px-3 py-2 rounded-lg border border-border dark:border-border-dark"
+            accessibilityRole="button"
+            accessibilityLabel={catSlug ? 'Back to Category' : 'Back'}
+            hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
             <Text className="text-text dark:text-text-inverted">{catSlug ? 'Back to Category' : 'Back'}</Text>
           </Pressable>
@@ -128,6 +131,8 @@ export default function TaxonDetailScreen() {
           source={getTaxonImageLocal(taxon.id)}
           style={{ width: 140, height: 140, borderRadius: 16 }}
           resizeMode="cover"
+          accessibilityRole="image"
+          accessibilityLabel={`Image of ${meta.caption}`}
         />
         <Text className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{meta.caption}</Text>
         {(meta.attribution || meta.license) ? (

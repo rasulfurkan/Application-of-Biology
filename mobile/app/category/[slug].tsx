@@ -31,6 +31,10 @@ export default function CategoryScreen() {
       <FlatList
         data={items}
         keyExtractor={(item) => item.id}
+        keyboardShouldPersistTaps="handled"
+        initialNumToRender={12}
+        windowSize={7}
+        removeClippedSubviews
         ItemSeparatorComponent={() => <View className="h-2" />}
         renderItem={({ item }) => (
           <Pressable
@@ -38,6 +42,9 @@ export default function CategoryScreen() {
               router.push({ pathname: '/taxon/[id]', params: { id: item.id } })
             }
             className="rounded-xl p-4 border border-border dark:border-border-dark bg-surface dark:bg-neutral-900"
+            accessibilityRole="button"
+            accessibilityLabel={`Open taxon ${item.scientificName}`}
+            hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
             <Text className="text-lg font-semibold text-text dark:text-text-inverted">
               {item.scientificName}
