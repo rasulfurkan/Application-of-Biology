@@ -80,9 +80,9 @@ const MAP: Record<string, { src: number; meta: ImageMeta }> = {
   'invert-drosophila-melanogaster': {
     src: require('../assets/images/taxa/invert-drosophila-melanogaster.jpg'),
     meta: {
-      license: 'CC BY-SA (see source)',
+      license: 'See source',
       attribution: 'Wikimedia Commons',
-      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Drosophila_melanogaster_male_lateral.jpg',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Standing_female_Drosophila_melanogaster.jpg',
     },
   },
   'invert-octopus-vulgaris': {
@@ -164,7 +164,7 @@ const MAP: Record<string, { src: number; meta: ImageMeta }> = {
     meta: {
       license: 'See source',
       attribution: 'Wikimedia Commons',
-      sourceUrl: 'https://commons.wikimedia.org/wiki/Category:Sphagnum_palustre',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Riezlern-hiking_path_Schwende-sign_Sphagnum_palustre-01ASD.jpg',
     },
   },
   'seedless-lycopodium-clavatum': {
