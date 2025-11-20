@@ -9,11 +9,11 @@
 - [x] Decide on data source approach (bundled curated JSON) and image policy
 
 ### Phase 1 — App Skeleton & Design System
-- [ ] Scaffold Expo app (TypeScript) with expo-router (tabs + stacks)
-- [ ] Configure NativeWind with provided palette and tokens
-- [ ] Add Space Grotesk font and Material Icons
-- [ ] Implement base screens: Home, Favorites, Settings
-- [ ] Light/Dark theme support matching design
+- [x] Scaffold Expo app (TypeScript) with expo-router (tabs + stacks)
+- [x] Configure NativeWind with provided palette and tokens
+- [x] Add Space Grotesk font and Material Icons
+- [x] Implement base screens: Home, Favorites, Settings
+- [x] Light/Dark theme support matching design
 
 ### Phase 2 — Data Model, Dataset & Search
 - [ ] Define Taxon schema (incl. subranks)
@@ -32,11 +32,13 @@
 
 ## Completed
 - Initialized memory bank with core files tailored to the systematics app.
+- Configure NativeWind with provided palette and tokens
+- Light/Dark theme support matching design
 
 ## In Progress / Next
 - Define data schema and category mapping rules.
 - Plan balanced starter list and attribution approach.
-- Prepare Expo skeleton and design tokens.
+- Start dev server with cache clear and verify base screens.
 
 ## Known Issues
 - None yet; awaiting specs.
@@ -44,3 +46,4 @@
 ## Log
 - 2025-11-19: Memory bank created and initial context drafted.
  - 2025-11-19: Phases defined and mobile/offline decisions recorded.
+ - 2025-11-19: Scaffolded Expo app (tabs + expo-router, TS) in `mobile/`; wired NativeWind base, Space Grotesk font, Material Icons; added Home/Favorites/Settings tabs.
