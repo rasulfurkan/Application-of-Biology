@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useFavorite } from '@/lib/favorites';
-import { getDefaultImageMeta, getTaxonImageLocal } from '@/lib/images';
+import { getDefaultImageMeta, getTaxonImageLocal, getTaxonImageMeta } from '@/lib/images';
 import { useLocalSearchParams, router } from 'expo-router';
 import { getTaxonById } from '@/lib/data';
 
@@ -28,6 +28,7 @@ export default function TaxonDetailScreen() {
   const lineage = taxon.lineage || [];
   const catSlug = taxon.category ? categoryToSlug[taxon.category] : undefined;
   const [fav, toggleFav, loadingFav] = useFavorite(taxon.id);
+  const [imgError, setImgError] = useState(false);
 
   // Build an ordered rank ladder with friendly labels and subranks
   const LABELS: Record<string, string> = {
@@ -97,7 +98,7 @@ export default function TaxonDetailScreen() {
     if (name || subs.length) ladder.push({ key: (mainKey ?? group[0])!, label, name, subs });
   }
 
-  const meta = getDefaultImageMeta({ scientificName: taxon.scientificName, commonNames: taxon.commonNames });
+  const meta = getTaxonImageMeta(taxon.id, { scientificName: taxon.scientificName, commonNames: taxon.commonNames });
 
   return (
     <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
@@ -127,13 +128,23 @@ export default function TaxonDetailScreen() {
 
       {/* Thumbnail (bundled placeholder for now) */}
       <View className="items-center mb-4">
-        <Image
-          source={getTaxonImageLocal(taxon.id)}
-          style={{ width: 140, height: 140, borderRadius: 16 }}
-          resizeMode="cover"
-          accessibilityRole="image"
-          accessibilityLabel={`Image of ${meta.caption}`}
-        />
+        <View className="rounded-2xl overflow-hidden border border-border dark:border-border-dark bg-neutral-100 dark:bg-neutral-800 p-2">
+          {imgError ? (
+            <View className="w-[160px] h-[160px] items-center justify-center">
+              <MaterialIcons name="image-not-supported" size={36} color="#9ca3af" />
+            </View>
+          ) : (
+            <Image
+              source={getTaxonImageLocal(taxon.id)}
+              defaultSource={getTaxonImageLocal(taxon.id) as any}
+              onError={() => setImgError(true)}
+              style={{ width: 160, height: 160, borderRadius: 12 }}
+              resizeMode="cover"
+              accessibilityRole="image"
+              accessibilityLabel={`Image of ${meta.caption}`}
+            />
+          )}
+        </View>
         <Text className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">{meta.caption}</Text>
         {(meta.attribution || meta.license) ? (
           <Text className="text-xs text-neutral-500 dark:text-neutral-400">{[meta.attribution, meta.license].filter(Boolean).join(' · ')}</Text>
