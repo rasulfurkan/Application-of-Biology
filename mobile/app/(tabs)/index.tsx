@@ -1,22 +1,35 @@
- import React from 'react';
-import { View, Text, TextInput, Pressable } from 'react-native';
+  import React, { useState } from 'react';
+ import { View, Text, TextInput, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
-export default function HomeScreen() {
-  return (
+ export default function HomeScreen() {
+   const [q, setQ] = useState('');
+
+   const submitSearch = () => {
+     const query = q.trim();
+     if (query.length) {
+       router.push({ pathname: '/search', params: { q: query } });
+     }
+   };
+
+   return (
     <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
       <Text className="text-2xl font-bold mb-4 text-text dark:text-text-inverted">Home</Text>
       <TextInput
         placeholder="Search genus or species..."
         placeholderTextColor="#9ca3af"
         className="w-full mb-4 px-4 py-3 rounded-xl border border-border dark:border-border-dark bg-surface dark:bg-neutral-900 text-base"
+        value={q}
+        onChangeText={setQ}
+        returnKeyType="search"
+        onSubmitEditing={submitSearch}
       />
 
       <View className="flex-row flex-wrap -mx-2">
         <View className="w-1/2 p-2">
           <Pressable
-            onPress={() => router.push('/modal')}
+            onPress={() => router.push({ pathname: '/category/[slug]', params: { slug: 'vertebrates' } })}
             className="rounded-2xl h-28 items-center justify-center bg-category-vertebrates">
             <MaterialIcons name="pets" size={28} color="#fff" />
             <Text className="mt-2 text-category-vertebrates-fg font-semibold">Vertebrates</Text>
@@ -25,7 +38,7 @@ export default function HomeScreen() {
 
         <View className="w-1/2 p-2">
           <Pressable
-            onPress={() => router.push('/modal')}
+            onPress={() => router.push({ pathname: '/category/[slug]', params: { slug: 'invertebrates' } })}
             className="rounded-2xl h-28 items-center justify-center bg-category-invertebrates">
             <MaterialIcons name="bug-report" size={28} color="#111827" />
             <Text className="mt-2 text-category-invertebrates-fg font-semibold">Invertebrates</Text>
@@ -34,7 +47,7 @@ export default function HomeScreen() {
 
         <View className="w-1/2 p-2">
           <Pressable
-            onPress={() => router.push('/modal')}
+            onPress={() => router.push({ pathname: '/category/[slug]', params: { slug: 'seed-plants' } })}
             className="rounded-2xl h-28 items-center justify-center bg-category-seedPlants">
             <MaterialIcons name="eco" size={28} color="#fff" />
             <Text className="mt-2 text-category-seedPlants-fg font-semibold">Seed Plants</Text>
@@ -43,7 +56,7 @@ export default function HomeScreen() {
 
         <View className="w-1/2 p-2">
           <Pressable
-            onPress={() => router.push('/modal')}
+            onPress={() => router.push({ pathname: '/category/[slug]', params: { slug: 'seedless-plants' } })}
             className="rounded-2xl h-28 items-center justify-center bg-category-seedlessPlants">
             <MaterialIcons name="spa" size={28} color="#fff" />
             <Text className="mt-2 text-category-seedlessPlants-fg font-semibold">Seedless Plants</Text>

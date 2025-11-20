@@ -1,0 +1,279 @@
+[
+  {
+    "id": "animal-panthera-leo",
+    "scientificName": "Panthera leo",
+    "canonicalName": "Panthera leo",
+    "rank": "species",
+    "parentId": "genus-panthera",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Chordata" },
+      { "rank": "classis", "name": "Mammalia" },
+      { "rank": "ordo", "name": "Carnivora" },
+      { "rank": "familia", "name": "Felidae" },
+      { "rank": "genus", "name": "Panthera" },
+      { "rank": "species", "name": "Panthera leo" }
+    ],
+    "commonNames": ["Lion"]
+  },
+  {
+    "id": "animal-homo-sapiens",
+    "scientificName": "Homo sapiens",
+    "canonicalName": "Homo sapiens",
+    "rank": "species",
+    "parentId": "genus-homo",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Chordata" },
+      { "rank": "classis", "name": "Mammalia" },
+      { "rank": "ordo", "name": "Primates" },
+      { "rank": "familia", "name": "Hominidae" },
+      { "rank": "genus", "name": "Homo" },
+      { "rank": "species", "name": "Homo sapiens" }
+    ],
+    "commonNames": ["Human"]
+  },
+  {
+    "id": "animal-gallus-gallus",
+    "scientificName": "Gallus gallus",
+    "canonicalName": "Gallus gallus",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Chordata" },
+      { "rank": "classis", "name": "Aves" },
+      { "rank": "ordo", "name": "Galliformes" },
+      { "rank": "familia", "name": "Phasianidae" },
+      { "rank": "genus", "name": "Gallus" },
+      { "rank": "species", "name": "Gallus gallus" }
+    ],
+    "commonNames": ["Chicken"]
+  },
+  {
+    "id": "animal-salmo-salar",
+    "scientificName": "Salmo salar",
+    "canonicalName": "Salmo salar",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Chordata" },
+      { "rank": "classis", "name": "Actinopterygii" },
+      { "rank": "ordo", "name": "Salmoniformes" },
+      { "rank": "familia", "name": "Salmonidae" },
+      { "rank": "genus", "name": "Salmo" },
+      { "rank": "species", "name": "Salmo salar" }
+    ],
+    "commonNames": ["Atlantic salmon"]
+  },
+
+  {
+    "id": "invert-drosophila-melanogaster",
+    "scientificName": "Drosophila melanogaster",
+    "canonicalName": "Drosophila melanogaster",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Arthropoda" },
+      { "rank": "classis", "name": "Insecta" },
+      { "rank": "ordo", "name": "Diptera" },
+      { "rank": "familia", "name": "Drosophilidae" },
+      { "rank": "genus", "name": "Drosophila" },
+      { "rank": "species", "name": "Drosophila melanogaster" }
+    ],
+    "commonNames": ["Fruit fly"]
+  },
+  {
+    "id": "invert-octopus-vulgaris",
+    "scientificName": "Octopus vulgaris",
+    "canonicalName": "Octopus vulgaris",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Mollusca" },
+      { "rank": "classis", "name": "Cephalopoda" },
+      { "rank": "ordo", "name": "Octopoda" },
+      { "rank": "familia", "name": "Octopodidae" },
+      { "rank": "genus", "name": "Octopus" },
+      { "rank": "species", "name": "Octopus vulgaris" }
+    ],
+    "commonNames": ["Common octopus"]
+  },
+  {
+    "id": "invert-apis-mellifera",
+    "scientificName": "Apis mellifera",
+    "canonicalName": "Apis mellifera",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Arthropoda" },
+      { "rank": "classis", "name": "Insecta" },
+      { "rank": "ordo", "name": "Hymenoptera" },
+      { "rank": "familia", "name": "Apidae" },
+      { "rank": "genus", "name": "Apis" },
+      { "rank": "species", "name": "Apis mellifera" }
+    ],
+    "commonNames": ["Honey bee"]
+  },
+  {
+    "id": "invert-culex-pipiens",
+    "scientificName": "Culex pipiens",
+    "canonicalName": "Culex pipiens",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "regnum", "name": "Animalia" },
+      { "rank": "phylum", "name": "Arthropoda" },
+      { "rank": "classis", "name": "Insecta" },
+      { "rank": "ordo", "name": "Diptera" },
+      { "rank": "familia", "name": "Culicidae" },
+      { "rank": "genus", "name": "Culex" },
+      { "rank": "species", "name": "Culex pipiens" }
+    ],
+    "commonNames": ["Mosquito"]
+  },
+
+  {
+    "id": "seed-arabidopsis-thaliana",
+    "scientificName": "Arabidopsis thaliana",
+    "canonicalName": "Arabidopsis thaliana",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Magnoliophyta" },
+      { "rank": "classis", "name": "Magnoliopsida" },
+      { "rank": "ordo", "name": "Brassicales" },
+      { "rank": "familia", "name": "Brassicaceae" },
+      { "rank": "genus", "name": "Arabidopsis" },
+      { "rank": "species", "name": "Arabidopsis thaliana" }
+    ],
+    "commonNames": ["Thale cress"]
+  },
+  {
+    "id": "seed-zea-mays",
+    "scientificName": "Zea mays",
+    "canonicalName": "Zea mays",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Magnoliophyta" },
+      { "rank": "classis", "name": "Liliopsida" },
+      { "rank": "ordo", "name": "Poales" },
+      { "rank": "familia", "name": "Poaceae" },
+      { "rank": "genus", "name": "Zea" },
+      { "rank": "species", "name": "Zea mays" }
+    ],
+    "commonNames": ["Maize"]
+  },
+  {
+    "id": "seed-pinus-sylvestris",
+    "scientificName": "Pinus sylvestris",
+    "canonicalName": "Pinus sylvestris",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Pinophyta" },
+      { "rank": "classis", "name": "Pinopsida" },
+      { "rank": "ordo", "name": "Pinales" },
+      { "rank": "familia", "name": "Pinaceae" },
+      { "rank": "genus", "name": "Pinus" },
+      { "rank": "species", "name": "Pinus sylvestris" }
+    ],
+    "commonNames": ["Scots pine"]
+  },
+  {
+    "id": "seed-rosa-canina",
+    "scientificName": "Rosa canina",
+    "canonicalName": "Rosa canina",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Magnoliophyta" },
+      { "rank": "classis", "name": "Magnoliopsida" },
+      { "rank": "ordo", "name": "Rosales" },
+      { "rank": "familia", "name": "Rosaceae" },
+      { "rank": "genus", "name": "Rosa" },
+      { "rank": "species", "name": "Rosa canina" }
+    ],
+    "commonNames": ["Dog rose"]
+  },
+
+  {
+    "id": "seedless-pteridium-aquilinum",
+    "scientificName": "Pteridium aquilinum",
+    "canonicalName": "Pteridium aquilinum",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Monilophyta" },
+      { "rank": "classis", "name": "Polypodiopsida" },
+      { "rank": "ordo", "name": "Polypodiales" },
+      { "rank": "familia", "name": "Dennstaedtiaceae" },
+      { "rank": "genus", "name": "Pteridium" },
+      { "rank": "species", "name": "Pteridium aquilinum" }
+    ],
+    "commonNames": ["Bracken fern"]
+  },
+  {
+    "id": "seedless-marchantia-polymorpha",
+    "scientificName": "Marchantia polymorpha",
+    "canonicalName": "Marchantia polymorpha",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Marchantiophyta" },
+      { "rank": "classis", "name": "Marchantiopsida" },
+      { "rank": "ordo", "name": "Marchantiales" },
+      { "rank": "familia", "name": "Marchantiaceae" },
+      { "rank": "genus", "name": "Marchantia" },
+      { "rank": "species", "name": "Marchantia polymorpha" }
+    ],
+    "commonNames": ["Liverwort"]
+  },
+  {
+    "id": "seedless-sphagnum-palustre",
+    "scientificName": "Sphagnum palustre",
+    "canonicalName": "Sphagnum palustre",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Bryophyta" },
+      { "rank": "classis", "name": "Sphagnopsida" },
+      { "rank": "ordo", "name": "Sphagnales" },
+      { "rank": "familia", "name": "Sphagnaceae" },
+      { "rank": "genus", "name": "Sphagnum" },
+      { "rank": "species", "name": "Sphagnum palustre" }
+    ],
+    "commonNames": ["Peat moss"]
+  },
+  {
+    "id": "seedless-lycopodium-clavatum",
+    "scientificName": "Lycopodium clavatum",
+    "canonicalName": "Lycopodium clavatum",
+    "rank": "species",
+    "lineage": [
+      { "rank": "domain", "name": "Eukaryota" },
+      { "rank": "kingdom", "name": "Plantae" },
+      { "rank": "division", "name": "Lycopodiophyta" },
+      { "rank": "classis", "name": "Lycopodiopsida" },
+      { "rank": "ordo", "name": "Lycopodiales" },
+      { "rank": "familia", "name": "Lycopodiaceae" },
+      { "rank": "genus", "name": "Lycopodium" },
+      { "rank": "species", "name": "Lycopodium clavatum" }
+    ],
+    "commonNames": ["Clubmoss"]
+  }
+]
