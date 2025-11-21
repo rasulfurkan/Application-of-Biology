@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, Image } from 'react-native';
+import { View, Text, Pressable, Image, ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useFavorite } from '@/lib/favorites';
 import { getDefaultImageMeta, getTaxonImageLocal, getTaxonImageMeta } from '@/lib/images';
@@ -16,6 +17,7 @@ const categoryToSlug: Record<string, string> = {
 export default function TaxonDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const taxon = id ? getTaxonById(String(id)) : undefined;
+  const insets = useSafeAreaInsets();
 
   if (!taxon) {
     return (
@@ -101,7 +103,10 @@ export default function TaxonDetailScreen() {
   const meta = getTaxonImageMeta(taxon.id, { scientificName: taxon.scientificName, commonNames: taxon.commonNames });
 
   return (
-    <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
+    <ScrollView
+      className="flex-1 bg-surface dark:bg-surface-dark"
+      contentContainerStyle={{ paddingTop: insets.top + 16, paddingHorizontal: 16, paddingBottom: 48 }}
+    >
       <View className="flex-row items-center justify-between mb-4">
         <Text className="text-2xl font-bold text-text dark:text-text-inverted">{taxon.scientificName}</Text>
         <View className="flex-row items-center">
@@ -176,6 +181,6 @@ export default function TaxonDetailScreen() {
           </View>
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 }

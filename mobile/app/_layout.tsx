@@ -2,9 +2,11 @@
  import { Stack } from 'expo-router';
  import * as SplashScreen from 'expo-splash-screen';
  import { useEffect } from 'react';
+ import { View, Image } from 'react-native';
  import 'react-native-reanimated';
  import '../global.css';
- import { useFonts } from 'expo-font';
+ import { useFonts, SpaceGrotesk_400Regular, SpaceGrotesk_500Medium, SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold } from '@expo-google-fonts/space-grotesk';
+ import { SafeAreaProvider } from 'react-native-safe-area-context';
  import MaterialIcons from '@expo/vector-icons/MaterialIcons';
  import { preloadTaxonImages } from '@/lib/images';
  import { getTaxa } from '@/lib/data';
@@ -26,10 +28,10 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceGrotesk_400Regular: require('../assets/fonts/SpaceGrotesk-Regular.ttf'),
-    SpaceGrotesk_500Medium: require('../assets/fonts/SpaceGrotesk-Medium.ttf'),
-    SpaceGrotesk_600SemiBold: require('../assets/fonts/SpaceGrotesk-SemiBold.ttf'),
-    SpaceGrotesk_700Bold: require('../assets/fonts/SpaceGrotesk-Bold.ttf'),
+    SpaceGrotesk_400Regular,
+    SpaceGrotesk_500Medium,
+    SpaceGrotesk_600SemiBold,
+    SpaceGrotesk_700Bold,
     ...MaterialIcons.font,
   });
 
@@ -57,7 +59,16 @@ export default function RootLayout() {
   }, []);
 
   if (!loaded) {
-    return null;
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff' }}>
+        <Image
+          source={require('../assets/images/splash-icon.png')}
+          style={{ width: 160, height: 160, resizeMode: 'contain' }}
+          accessibilityRole="image"
+          accessibilityLabel="Splash logo"
+        />
+      </View>
+    );
   }
 
   return <RootLayoutNav />;
@@ -67,11 +78,15 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="category/[slug]" options={{ headerShown: false }} />
+          <Stack.Screen name="taxon/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        </Stack>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

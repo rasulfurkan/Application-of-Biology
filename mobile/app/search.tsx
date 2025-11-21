@@ -2,12 +2,14 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { View, Text, TextInput, FlatList, Pressable, Keyboard } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { searchTaxa } from '@/lib/search';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function SearchScreen() {
   const params = useLocalSearchParams<{ q?: string }>();
   const initial = (params.q ?? '').toString();
   const [q, setQ] = useState(initial);
   const [committed, setCommitted] = useState(initial);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     if (initial && initial !== committed) {
@@ -25,13 +27,14 @@ export default function SearchScreen() {
   };
 
   return (
-    <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
-      <Text className="text-2xl font-bold text-text dark:text-text-inverted mb-4">Search</Text>
+    <View className="flex-1 bg-surface dark:bg-surface-dark" style={{ paddingTop: insets.top + 8 }}>
+      <View className="flex-1 p-4">
+        <Text className="text-2xl font-bold text-text dark:text-text-inverted mb-4">Search</Text>
 
       <TextInput
         placeholder="Search genus/species, synonyms, common names"
         placeholderTextColor="#9ca3af"
-        className="w-full mb-4 px-4 py-3 rounded-xl border border-border dark:border-border-dark bg-surface dark:bg-neutral-900 text-base"
+        className="w-full mb-4 px-4 py-3 rounded-xl border border-border dark:border-border-dark bg-surface dark:bg-neutral-900 text-base text-text dark:text-text-inverted"
         value={q}
         onChangeText={setQ}
         returnKeyType="search"
@@ -71,6 +74,7 @@ export default function SearchScreen() {
           </Pressable>
         )}
       />
+      </View>
     </View>
   );
 }
