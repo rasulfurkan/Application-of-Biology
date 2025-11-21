@@ -4,9 +4,11 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useFavorites, useFavorite } from '@/lib/favorites';
 import { getTaxonById } from '@/lib/data';
 import { router } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function FavoritesScreen() {
   const [ids] = useFavorites();
+  const insets = useSafeAreaInsets();
 
   const items = useMemo(() => ids.map((id) => getTaxonById(id)).filter(Boolean), [ids]);
 
@@ -19,8 +21,9 @@ export default function FavoritesScreen() {
   }
 
   return (
-    <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
-      <Text className="text-2xl font-bold text-text dark:text-text-inverted mb-3">Favorites</Text>
+    <View className="flex-1 bg-surface dark:bg-surface-dark" style={{ paddingTop: insets.top + 8 }}>
+      <View className="flex-1 p-4">
+        <Text className="text-2xl font-bold text-text dark:text-text-inverted mb-3">Favorites</Text>
       <FlatList
         data={items}
         keyExtractor={(t) => t!.id}
@@ -31,6 +34,7 @@ export default function FavoritesScreen() {
         keyboardShouldPersistTaps="handled"
         ItemSeparatorComponent={() => <View className="h-px bg-border dark:bg-border-dark my-2" />}
       />
+      </View>
     </View>
   );
 }

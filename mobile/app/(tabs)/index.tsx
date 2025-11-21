@@ -2,9 +2,11 @@
  import { View, Text, TextInput, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const [q, setQ] = useState('');
+  const insets = useSafeAreaInsets();
 
   const submitSearch = useCallback(() => {
     const query = q.trim();
@@ -14,12 +16,13 @@ export default function HomeScreen() {
   }, [q]);
 
   return (
-    <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
+    <View className="flex-1 bg-surface dark:bg-surface-dark" style={{ paddingTop: insets.top + 8 }}>
+      <View className="flex-1 p-4">
       <Text className="text-2xl font-bold mb-4 text-text dark:text-text-inverted">Home</Text>
       <TextInput
         placeholder="Search genus or species..."
         placeholderTextColor="#9ca3af"
-        className="w-full mb-4 px-4 py-3 rounded-xl border border-border dark:border-border-dark bg-surface dark:bg-neutral-900 text-base"
+        className="w-full mb-4 px-4 py-3 rounded-xl border border-border dark:border-border-dark bg-surface dark:bg-neutral-900 text-base text-text dark:text-text-inverted"
         value={q}
         onChangeText={setQ}
         returnKeyType="search"
@@ -76,6 +79,7 @@ export default function HomeScreen() {
             <Text className="mt-2 text-category-seedlessPlants-fg font-semibold">Seedless Plants</Text>
           </Pressable>
         </View>
+      </View>
       </View>
     </View>
   );

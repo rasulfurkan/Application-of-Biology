@@ -2,6 +2,7 @@ import React from 'react';
  import { View, Text, FlatList, Pressable } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { getTaxa } from '@/lib/data';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const slugToCategory: Record<string, 'Vertebrates' | 'Invertebrates' | 'Seed Plants' | 'Seedless Plants'> = {
   'vertebrates': 'Vertebrates',
@@ -13,12 +14,14 @@ const slugToCategory: Record<string, 'Vertebrates' | 'Invertebrates' | 'Seed Pla
 export default function CategoryScreen() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const category = slug ? slugToCategory[String(slug).toLowerCase()] : undefined;
+  const insets = useSafeAreaInsets();
 
   const { all } = getTaxa();
   const items = category ? all.filter((t) => t.category === category) : [];
 
   return (
-    <View className="flex-1 bg-surface dark:bg-surface-dark p-4">
+    <View className="flex-1 bg-surface dark:bg-surface-dark" style={{ paddingTop: insets.top + 8 }}>
+      <View className="flex-1 p-4">
       <View className="flex-row items-center mb-2">
         <Pressable onPress={() => router.push({ pathname: '/(tabs)' })}>
           <Text className="text-sm text-neutral-500 dark:text-neutral-400 underline">Home</Text>
@@ -57,6 +60,7 @@ export default function CategoryScreen() {
           </Pressable>
         )}
       />
+      </View>
     </View>
   );
 }
