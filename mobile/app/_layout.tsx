@@ -2,6 +2,7 @@
  import { Stack } from 'expo-router';
  import * as SplashScreen from 'expo-splash-screen';
  import { useEffect } from 'react';
+ import { View, Image } from 'react-native';
  import 'react-native-reanimated';
  import '../global.css';
  import { useFonts, SpaceGrotesk_400Regular, SpaceGrotesk_500Medium, SpaceGrotesk_600SemiBold, SpaceGrotesk_700Bold } from '@expo-google-fonts/space-grotesk';
@@ -58,7 +59,16 @@ export default function RootLayout() {
   }, []);
 
   if (!loaded) {
-    return null;
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff' }}>
+        <Image
+          source={require('../assets/images/splash-icon.png')}
+          style={{ width: 160, height: 160, resizeMode: 'contain' }}
+          accessibilityRole="image"
+          accessibilityLabel="Splash logo"
+        />
+      </View>
+    );
   }
 
   return <RootLayoutNav />;
